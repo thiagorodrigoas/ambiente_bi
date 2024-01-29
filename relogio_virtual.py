@@ -6,7 +6,7 @@ class RelogioVirtual:
         self.current_date = datetime(start_year, start_month, start_day)
         self.last_checked_real_time = round(time.time())
         self.factor_hour_per_sec = factor_hour_per_sec
-
+ 
     def get_current_time(self):
         """Retorna a hora atual fictícia"""
         elapsed_real_seconds = round(time.time()) - self.last_checked_real_time
@@ -19,5 +19,6 @@ class RelogioVirtual:
 if __name__ == '__main__':
     clock = RelogioVirtual(start_year=2018, start_month=1, start_day=1,factor_hour_per_sec=24)
     while True:
-        print(clock.get_current_time().strftime('%d/%m/%Y %H:%M:%S'))
+        print(clock.get_current_time().strftime('%d/%m/%Y %H:%M:%S' ))
+        
         time.sleep(10)
