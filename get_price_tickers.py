@@ -2,6 +2,7 @@ from tinydb import TinyDB, Query
 import pandas as pd
 import yfinance as yf
 from pathlib import Path
+from desc_produtos import df_produtos
 # Definindo a variável global para o banco de dados e os dados mensais
 
 global_db = None
@@ -50,8 +51,8 @@ def fetch_monthly_data(list_tickers, data_consulta):
     
 
 # # Inicialize o banco de dados antes de chamar a função fetch_monthly_data
-# # init_db()
+# init_db()
 
 # # Testando
 # # Supondo que row e data_consulta são fornecidos, chame fetch_monthly_data
-# fetch_monthly_data(acoes_brasileiras, '2018-01-01')
+fetch_monthly_data(list(df_produtos['des_ticket_price']), '2018-01-01')

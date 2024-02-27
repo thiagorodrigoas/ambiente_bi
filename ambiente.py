@@ -15,7 +15,7 @@ from pandas.core.common import SettingWithCopyWarning
 warnings.simplefilter(action="ignore", category=SettingWithCopyWarning)
 
 
-clock = RelogioVirtual(start_year=2023, start_month=1, start_day=1, factor_hour_per_sec=24) # a cada 1 sec passa 24hs
+clock = RelogioVirtual(start_year=2024, start_month=2, start_day=1, factor_hour_per_sec=24) # a cada 1 sec passa 24hs
 dir_path = Path("database")
 database_price = TinyDB(dir_path / "database_price.json",indent=2)
 query = Query()
