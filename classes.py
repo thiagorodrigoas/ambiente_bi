@@ -22,8 +22,11 @@ class Cliente:
         self.dat_nascimento = dat_nascimento
         self.dat_cadastro = dat_cadastro
 
-    def cria_cliente_fake(qtd_clientes, data_cadastro):
-        ...    
+    def __repr__(self):
+            return f'Cliente (des_nome = {self.des_nome}, des_sobrenome = {self.des_sobrenome}, vlr_poder_compra = {self.vlr_poder_compra}, vlr_saldo = {self.vlr_saldo}, des_email = {self.des_email}, num_telefone = {self.num_telefone}, dat_nascimento = {self.dat_nascimento}, dat_cadastro = {self.dat_cadastro})'
+    
+    def cria_cliente_fake(clock):
+        return 
 
 class Loja:
     def __init__(self,nom_loja, cod_long, cod_lat, des_bairro, des_pais, des_estado, des_tamanho_loja, dat_criacao, dat_alteracao):
@@ -37,6 +40,10 @@ class Loja:
         self.dat_criacao = dat_criacao
         self.dat_alteracao = dat_alteracao
 
+    def __repr__(self):
+            return f'Loja(nom_loja = {self.nom_loja}, cod_long = {self.cod_long}, cod_lat = {self.cod_lat}, des_bairro = {self.des_bairro}, des_pais = {self.des_pais}, des_estado = {self.des_estado}, des_tamanho_loja = {self.des_tamanho_loja}, dat_criacao = {self.dat_criacao}, dat_alteracao = {self.dat_alteracao})'
+    
+    
     def cria_loja_fake(qtd_lojas,clock):
         ...
 
@@ -47,6 +54,9 @@ class Vendedor:
         self.cod_loja =cod_loja
         self.dat_criacao =dat_criacao
         self.dat_alteracao =dat_alteracao
+
+    def __repr__(self):
+            return f'Vendedor(nom_vendedor = {self.nom_vendedor}, des_email = {self.des_email}, dat_criacao = {self.dat_criacao}, dat_alteracao = {self.dat_alteracao})'
 
     def cria_vendedor_fake(lojas):
         ...
@@ -59,11 +69,24 @@ class Estoque:
         self.dat_criacao = dat_criacao
         self.dat_alteracao = dat_alteracao
 
+    def __repr__(self):
+            return f'Estoque(cod_loja = {self.cod_loja}, cod_produto = {self.cod_produto}, qtd_produto = {self.qtd_produto}, dat_criacao = {self.dat_criacao}, dat_alteracao = {self.dat_alteracao})'
+
     def cria_estoque_fake(lojas,produtos):
         ...
 
+class Produto:
+    def __init__(self, nom_produto, vlr_custo, des_produto, des_ticket_price, dat_criacao, dat_alteracao):
+        self.nom_produto = nom_produto
+        self.vlr_custo = vlr_custo
+        self.des_produto = des_produto
+        self.des_ticket_price = des_ticket_price
+        self.dat_criacao = dat_criacao
+        self.dat_alteracao = dat_alteracao
 
-
+    def __repr__(self):
+            return f'Produto(nom_produto = {self.nom_produto}, vlr_custo = {self.vlr_custo}, des_produto = {self.des_produto}, des_ticket_price = {self.des_ticket_price}, dat_criacao = {self.dat_criacao}, dat_alteracao = {self.dat_alteracao})'
+        
 with Ambiente() as ambiente:
     print(ambiente.relogio_virtual.get_current_time())
     pass

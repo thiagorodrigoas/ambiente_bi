@@ -32,9 +32,6 @@ def store_in_db(data):
 def fetch_monthly_data(list_tickers, data_consulta):
     # Define o período de data_consulta até hoje
     end_date = pd.Timestamp.today()
-    
-
-
     daily_data = yf.download(list_tickers, start=data_consulta, end=end_date)
     
     # Converte para frequência mensal

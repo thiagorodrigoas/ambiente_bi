@@ -1,1 +1,2 @@
 env_ambiente_bi/**/* 
+__pycache__/

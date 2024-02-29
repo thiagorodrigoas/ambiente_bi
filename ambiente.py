@@ -1,5 +1,5 @@
 from relogio_virtual import RelogioVirtual
-from get_price_tickers import fetch_monthly_data, global_db
+from get_price_tickers import fetch_monthly_data
 from desc_produtos import produtos, df_produtos
 from cria_fake import cria_cliente_fake, cria_loja_fake, cria_vendedor_fake, cria_estoque_fake
 from conecta_banco import CONFIG_DB,conecta_banco,inicia_cursor

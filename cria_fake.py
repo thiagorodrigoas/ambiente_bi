@@ -2,7 +2,6 @@
 from faker import Faker
 import unicodedata
 from random import randint, random, randrange
-from desc_produtos import produtos
 faker = Faker(locale='pt_BR')
 
 def choice_probs(elements, probs):
@@ -113,6 +112,7 @@ def cria_estoque_fake(lojas,produtos):
 
     lista_estoques = []
     for _, loja_row in lojas.iterrows():
+        
         if loja_row['des_tamanho_loja'] == 'PEQUENA':
             l_produtos = produtos.sample(n=randint(1,round(len(produtos)*0.1)))
             for _, prod_row in l_produtos.iterrows():
