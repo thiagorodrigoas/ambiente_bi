@@ -16,6 +16,24 @@ class ClienteRepository:
             except Exception as exception:
                 db.session.rollback()
                 raise exception
+            
+    def select_where(self, filters) -> Cliente:
+        with DBConnectionHandler() as db:
+            try:
+                query = db.session.query(Cliente)
+                for key, value in filters.items():
+                    if hasattr(Cliente, key):
+                        query = query.filter(getattr(Cliente, key) == value)
+                cliente = query.first()
+                if cliente == None:
+                    raise NoResultFound
+                else:
+                    return cliente
+            except NoResultFound:
+                raise NoResultFound('Cliente Não encontrado!')
+            except Exception as exception:
+                db.session.rollback()
+                raise exception
 
     def insert(self, cliente):
         with DBConnectionHandler() as db:
