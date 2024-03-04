@@ -1,4 +1,4 @@
-from infra.configs.base import Base
+from src.models.configs.base import Base
 from sqlalchemy import Column, Integer, Date, ForeignKey
 from sqlalchemy.orm import relationship
 from sqlalchemy.sql import func

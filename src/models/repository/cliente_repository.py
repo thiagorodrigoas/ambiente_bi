@@ -1,8 +1,11 @@
-from infra.configs.connection import DBConnectionHandler
-from infra.entities.cliente import Cliente
+from src.models.configs.connection import DBConnectionHandler
+from src.models.entities.cliente import Cliente
 from sqlalchemy.orm.exc import NoResultFound
 
 class ClienteRepository:
+    def __init__(self) -> None:
+        pass
+    
     def select(self):
         with DBConnectionHandler() as db:
             try:
@@ -14,10 +17,10 @@ class ClienteRepository:
                 db.session.rollback()
                 raise exception
 
-    def insert(self, des_nome, des_sobrenome, vlr_poder_compra, vlr_saldo, des_email, num_telefone, dat_nascimento, dat_cadastro):
+    def insert(self, cliente):
         with DBConnectionHandler() as db:
             try:
-                data_isert = Cliente(des_nome, des_sobrenome, vlr_poder_compra, vlr_saldo, des_email, num_telefone, dat_nascimento, dat_cadastro)
+                data_isert = cliente
                 db.session.add(data_isert)
                 db.session.commit()
             except Exception as exception:

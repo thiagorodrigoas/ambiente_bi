@@ -115,18 +115,15 @@ class ProdutoProvider(BaseProvider):
             )
 
 faker.add_provider(ClienteProvider)
-c = faker.Cliente()
-
 faker.add_provider(LojaProvider)
-l = faker.Loja()
-
 faker.add_provider(VendedorProvider)
-v = faker.Vendedor()
-
 faker.add_provider(ProdutoProvider)
-p = faker.Produto()
-
 faker.add_provider(EstoqueProvider)
-e = faker.Estoque(l,p)
 
-print('done')
+# c = faker.Cliente()
+# l = faker.Loja()
+# v = faker.Vendedor()
+# p = faker.Produto()
+# e = faker.Estoque(l,p)
+
+# print('done')

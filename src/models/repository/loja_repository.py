@@ -1,5 +1,5 @@
-from infra.configs.connection import DBConnectionHandler
-from infra.entities.loja import Loja
+from models.configs.connection import DBConnectionHandler
+from models.entities.loja import Loja
 from sqlalchemy.orm.exc import NoResultFound
 
 class LojaRepository:

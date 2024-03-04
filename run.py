@@ -1,6 +1,4 @@
-from infra.repository.cliente_repository import ClienteRepository
+from src.main.process_handle import start
 
-repo_cliente = ClienteRepository()
-res = repo_cliente.select()
-
-print(res)
+if __name__ == "__main__":
+    start()

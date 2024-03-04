@@ -1,12 +1,12 @@
-from infra.configs.connection import DBConnectionHandler
-from infra.entities.produto import Produto
+from models.configs.connection import DBConnectionHandler
+from models.entities.estoque import Estoque
 from sqlalchemy.orm.exc import NoResultFound
 
-class ProdutoRepository:
+class EstoqueRepository:
     def select(self):
         with DBConnectionHandler() as db:
             try:
-                data = db.session.query(Produto).all()
+                data = db.session.query(Estoque).all()
                 return data
             except NoResultFound:
                 return None
@@ -14,30 +14,30 @@ class ProdutoRepository:
                 db.session.rollback()
                 raise exception
 
-    def insert(self, nom_produto, vlr_custo, des_produto, des_ticket_price, dat_criacao, dat_alteracao):
+    def insert(self, cod_loja, cod_produto, qtd_produto, dat_criacao, dat_alteracao):
         with DBConnectionHandler() as db:
             try:
-                data_isert = Produto(nom_produto, vlr_custo, des_produto, des_ticket_price, dat_criacao, dat_alteracao)
+                data_isert = Estoque(cod_loja, cod_produto, qtd_produto, dat_criacao, dat_alteracao)
                 db.session.add(data_isert)
                 db.session.commit()
             except Exception as exception:
                 db.session.rollback()
                 raise exception
 
-    def delete(self, cod_id_produto):
+    def delete(self, cod_id_estoque):
         with DBConnectionHandler() as db:
             try:
-                db.session.query(Produto).filter(Produto.cod_id_produto == cod_id_produto).delete()
+                db.session.query(Estoque).filter(Estoque.cod_id_estoque == cod_id_estoque).delete()
                 db.session.commit()
             except Exception as exception:
                 db.session.rollback()
                 raise exception
-
-    def update(self, cod_id_produto, produto):
-    #FIXME: corrigir o que será atualizado (produto)
+            
+    def update(self, cod_id_estoque, estoque):
+    #FIXME: corrigir o que será atualizado (estoque)
         with DBConnectionHandler() as db:
             try:
-                db.session.query(Produto).filter(Produto.cod_id_produto == cod_id_produto).update({ "attrs_do_produto": produto })
+                db.session.query(Estoque).filter(Estoque.cod_id_estoque == cod_id_estoque).update({ "attrs_do_estoque": estoque })
                 db.session.commit()
             except Exception as exception:
                 db.session.rollback()
