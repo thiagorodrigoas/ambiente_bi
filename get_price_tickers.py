@@ -41,7 +41,7 @@ def fetch_monthly_data(list_tickers, data_consulta):
     daily_data = daily_data.round(2)
     monthly_data_close =  daily_data.reset_index() 
     monthly_data_close['Date'] = monthly_data_close['Date'].dt.strftime('%Y-%m-%d')
-
+    
     # Armazenando no banco de dados tinydb
     store_in_db(monthly_data_close.to_dict(orient='records'))
     return global_db

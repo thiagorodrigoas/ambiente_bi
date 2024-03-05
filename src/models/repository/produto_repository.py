@@ -1,5 +1,5 @@
-from models.configs.connection import DBConnectionHandler
-from models.entities.produto import Produto
+from src.models.configs.connection import DBConnectionHandler
+from src.models.entities.produto import Produto
 from sqlalchemy.orm.exc import NoResultFound
 
 class ProdutoRepository:
@@ -14,10 +14,10 @@ class ProdutoRepository:
                 db.session.rollback()
                 raise exception
 
-    def insert(self, nom_produto, vlr_custo, des_produto, des_ticket_price, dat_criacao, dat_alteracao):
+    def insert(self, produto):
         with DBConnectionHandler() as db:
             try:
-                data_isert = Produto(nom_produto, vlr_custo, des_produto, des_ticket_price, dat_criacao, dat_alteracao)
+                data_isert = produto
                 db.session.add(data_isert)
                 db.session.commit()
             except Exception as exception:

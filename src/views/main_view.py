@@ -5,6 +5,7 @@ def introduction_page():
         * Cadastrar Cliente - 1
         * Buscar Cliente Por Nome - 2
         * Cadastrar Loja - 3
+        * Cadastrar Produto - 4
         * Sair - 5
     '''
 
