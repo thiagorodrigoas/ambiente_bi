@@ -1,7 +1,7 @@
 from faker import Faker
 from faker.providers import BaseProvider
 import unicodedata
-from datetime import datetime
+from datetime import datetime, date
 from src.models.entities import Cliente, Estoque, Loja, Vendedor, Produto
 from random import  randrange, random, randint, choice
 import pandas as pd
@@ -96,8 +96,8 @@ class VendedorProvider(BaseProvider):
                 nom_vendedor = f'{des_nome} {des_sobrenome}',
                 des_email = des_email,
                 cod_loja = None,
-                dat_criacao =None,
-                dat_alteracao =None)
+                dat_criacao =date.today(),
+                dat_alteracao =date.today())
 
 class ProdutoProvider(BaseProvider):
     stock_tickers = ["ABEV3.SA",

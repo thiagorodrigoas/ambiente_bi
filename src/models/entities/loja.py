@@ -7,7 +7,7 @@ class Loja(Base):
     __tablename__ = "sistema_loja"
     __table_args__ = {'schema': 'dbo'}  # Especificando o esquema
 
-    cod_id_loja = Column(Integer, primary_key=True)
+    cod_id_loja = Column(Integer, primary_key=True, autoincrement=True)
     nom_loja = Column(String, nullable=False)  # nvarchar(MAX)
     cod_long = Column(String, nullable=True)  # nvarchar(MAX)
     cod_lat = Column(String, nullable=True)  # nvarchar(MAX)

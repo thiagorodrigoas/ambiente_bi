@@ -11,6 +11,9 @@ def introduction_page():
         * Cadastrar Produto - 5
         * Buscar Produto Por Nome - 6
 
+        * Cadastrar Vendedor - 7
+        * Buscar Vendedor Por Nome - 8
+
         * Sair - 0
     '''
 

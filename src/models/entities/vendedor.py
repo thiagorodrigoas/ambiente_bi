@@ -8,7 +8,7 @@ class Vendedor(Base):
     __tablename__ = "sistema_vendedor"
     __table_args__ = {'schema': 'dbo'}  # Especificando o esquema
 
-    cod_id_vendedor = Column(Integer, primary_key=True)
+    cod_id_vendedor = Column(Integer, primary_key=True, autoincrement=True)
     nom_vendedor = Column(String, nullable=False)  # nvarchar(MAX), sem limitação de tamanho definida
     des_email = Column(String, nullable=True)  # nvarchar(MAX), sem limitação de tamanho definida
     cod_loja = Column(Integer, ForeignKey('dbo.sistema_loja.cod_id_loja'), nullable=False)

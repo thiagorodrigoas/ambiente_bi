@@ -7,7 +7,7 @@ class Estoque(Base):
     __tablename__ = "sistema_estoque"
     __table_args__ = {'schema': 'dbo'}  # Especificando o esquema
 
-    cod_id_estoque = Column(Integer, primary_key=True)
+    cod_id_estoque = Column(Integer, primary_key=True, autoincrement=True)
     cod_loja = Column(Integer, nullable=True)
     cod_produto = Column(Integer, ForeignKey('dbo.sistema_produto.cod_id_produto'), nullable=True)
     qtd_produto = Column(Integer, nullable=True)

@@ -1,5 +1,5 @@
-from models.configs.connection import DBConnectionHandler
-from models.entities.vendedor import Vendedor
+from src.models.configs.connection import DBConnectionHandler
+from src.models.entities.vendedor import Vendedor
 from sqlalchemy.orm.exc import NoResultFound
 
 class VendedorRepository:
@@ -15,11 +15,31 @@ class VendedorRepository:
                 db.session.rollback()
                 raise exception
 
-    def insert(self,nom_vendedor, des_email, cod_loja, dat_criacao, dat_alteracao):
+
+    def select_where(self, filters) -> Vendedor:
         with DBConnectionHandler() as db:
             try:
-                data_isert = Vendedor(nom_vendedor, des_email, cod_loja, dat_criacao, dat_alteracao)
-                db.session.add(data_isert)
+                query = db.session.query(Vendedor)
+                for key, value in filters.items():
+                    if hasattr(Vendedor, key):
+                        query = query.filter(getattr(Vendedor, key) == value)
+                vendedor = query.first()
+                if vendedor == None:
+                    raise NoResultFound
+                else:
+                    return vendedor
+            except NoResultFound:
+                raise NoResultFound('Vendedor Não encontrado!')
+            except Exception as exception:
+                db.session.rollback()
+                raise exception
+
+
+    def insert(self, vendedor):
+        with DBConnectionHandler() as db:
+            try:
+                data_insert = vendedor
+                db.session.add(data_insert)
                 db.session.commit()
             except Exception as exception:
                 db.session.rollback()

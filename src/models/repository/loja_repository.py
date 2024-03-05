@@ -3,7 +3,7 @@ from src.models.entities.loja import Loja
 from sqlalchemy.orm.exc import NoResultFound
 
 class LojaRepository:
-    def select(self):
+    def select():
         with DBConnectionHandler() as db:
             try:
                 data = db.session.query(Loja).all()

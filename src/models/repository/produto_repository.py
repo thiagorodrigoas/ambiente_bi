@@ -14,6 +14,25 @@ class ProdutoRepository:
                 db.session.rollback()
                 raise exception
 
+    def select_where(self, filters) -> Produto:
+        with DBConnectionHandler() as db:
+            try:
+                query = db.session.query(Produto)
+                for key, value in filters.items():
+                    if hasattr(Produto, key):
+                        query = query.filter(getattr(Produto, key) == value)
+                produto = query.first()
+                if produto == None:
+                    raise NoResultFound
+                else:
+                    return produto
+            except NoResultFound:
+                raise NoResultFound('Produto Não encontrado!')
+            except Exception as exception:
+                db.session.rollback()
+                raise exception
+
+
     def insert(self, produto):
         with DBConnectionHandler() as db:
             try:
