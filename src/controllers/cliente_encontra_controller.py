@@ -36,8 +36,3 @@ class ClienteEcontraController:
                         "dat_cadastro": info_cliente_busca.dat_cadastro
                     }
             }
-
-
-        
-        
-        

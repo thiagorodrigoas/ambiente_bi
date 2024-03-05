@@ -1,7 +1,7 @@
 import os
 from typing import Dict
 
-from utilities.faker_providers import faker
+from src.utilities.faker_providers import faker
 
 class ClienteCadastroView:
     def cadastro_cliente_view(self):
