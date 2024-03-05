@@ -2,7 +2,7 @@ from faker import Faker
 from faker.providers import BaseProvider
 import unicodedata
 from datetime import datetime
-from classes import Cliente, Estoque, Loja, Vendedor, Produto
+from src.models.entities import Cliente, Estoque, Loja, Vendedor, Produto
 from random import  randrange, random, randint, choice
 import pandas as pd
 import yfinance as yf
@@ -220,6 +220,7 @@ class ProdutoProvider(BaseProvider):
     def get_vlr_custo(self, tck, data_consulta):
         # Define o período de data_consulta até hoje
         end_date = pd.Timestamp.today()
+        print(f'Baixando dados da ação: {tck}')
         daily_data = yf.download(tck, start=data_consulta, end=end_date)
         
 

@@ -1,7 +1,7 @@
 import os
 from typing import Dict
 
-from fakes import faker
+from utilities.faker_providers import faker
 
 class LojaCadastroView:
     def cadastro_loja_view(self):
