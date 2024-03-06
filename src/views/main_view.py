@@ -14,6 +14,15 @@ def introduction_page():
         * Cadastrar Vendedor - 7
         * Buscar Vendedor Por Nome - 8
 
+        * Cadastrar Estoque - 9
+        #* Buscar Estoque Por Loja - 10
+
+        #* Cadastrar Venda - 11
+        #* Buscar Venda Por Vendedor - 12
+
+        #* Cadastrar Item Venda - 13
+        #* Buscar Item Venda Por Venda - 14
+
         * Sair - 0
     '''
 

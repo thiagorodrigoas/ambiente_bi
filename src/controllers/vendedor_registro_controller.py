@@ -14,9 +14,10 @@ class VendedorCadastroController:
         except Exception as exception:
             return {"success": False, "error": str(exception)}
         
-    def busca_loja():
+    def busca_lojas():
         lojas = LojaRepository.select()
-        return lojas   
+        return lojas  
+     
     def __validate_fields(self, info_vendedor: Dict) -> None:
         if not info_vendedor.get("nom_vendedor"):
             raise Exception('O nome do vendedor é obrigatório!')

@@ -3,7 +3,7 @@ from src.models.entities.estoque import Estoque
 from sqlalchemy.orm.exc import NoResultFound
 
 class EstoqueRepository:
-    def select(self):
+    def select():
         with DBConnectionHandler() as db:
             try:
                 data = db.session.query(Estoque).all()

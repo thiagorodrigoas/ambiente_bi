@@ -2,7 +2,7 @@ from src.views.vendedor_registro_view import VendedorCadastroView
 from src.controllers.vendedor_registro_controller import VendedorCadastroController
 
 def vendedor_registro_constructor():
-    lojas = VendedorCadastroController.busca_loja()  
+    lojas = VendedorCadastroController.busca_lojas()  
     vendedor_registro_view = VendedorCadastroView(lojas)
     vendedor_registro_controller = VendedorCadastroController()
 

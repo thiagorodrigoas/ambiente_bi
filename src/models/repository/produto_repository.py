@@ -3,7 +3,7 @@ from src.models.entities.produto import Produto
 from sqlalchemy.orm.exc import NoResultFound
 
 class ProdutoRepository:
-    def select(self):
+    def select():
         with DBConnectionHandler() as db:
             try:
                 data = db.session.query(Produto).all()
