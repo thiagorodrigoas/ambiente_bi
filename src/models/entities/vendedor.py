@@ -16,6 +16,6 @@ class Vendedor(Base):
     dat_alteracao = Column(Date, nullable=True, onupdate=func.current_date())
 
     # Relacionamento com a tabela sistema_loja
-    lojas = relationship("Loja", back_populates="vendedores")
+    lojas = relationship("Loja", backref="vendedores", lazy='subquery')
     def __repr__(self):
             return f'Vendedor(cod_id_vendedor = {self.cod_id_vendedor}, nom_vendedor = {self.nom_vendedor}, des_email = {self.des_email}, dat_criacao = {self.dat_criacao}, dat_alteracao = {self.dat_alteracao})'

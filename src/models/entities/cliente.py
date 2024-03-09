@@ -1,7 +1,7 @@
 from src.models.configs.base import Base
 from sqlalchemy import Column, String, Integer, DateTime, Float, Date
 from sqlalchemy.sql import func
-
+from sqlalchemy.orm import relationship
 
 class Cliente(Base):
     __tablename__ = "sistema_cliente"
@@ -17,6 +17,8 @@ class Cliente(Base):
     dat_nascimento = Column(Date, nullable=True)
     dat_cadastro = Column(DateTime, default=func.getdate(), nullable=True)
 
+    vendas = relationship("Venda", backref="vendas", lazy='subquery')
+    
     def __repr__(self):
             return f'Cliente (cod_id_cliente = {self.cod_id_cliente}, des_nome = {self.des_nome}, des_sobrenome = {self.des_sobrenome}, vlr_poder_compra = {self.vlr_poder_compra}, vlr_saldo = {self.vlr_saldo}, des_email = {self.des_email}, num_telefone = {self.num_telefone}, dat_nascimento = {self.dat_nascimento}, dat_cadastro = {self.dat_cadastro})'
  

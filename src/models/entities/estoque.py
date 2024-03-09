@@ -9,13 +9,13 @@ class Estoque(Base):
 
     cod_id_estoque = Column(Integer, primary_key=True, autoincrement=True)
     cod_loja = Column(Integer, nullable=True)
-    cod_produto = Column(Integer, ForeignKey('dbo.sistema_produto.cod_id_produto'), nullable=True)
+    cod_produto = Column(Integer, ForeignKey('dbo.sistema_produto.cod_id_produto'))
     qtd_produto = Column(Integer, nullable=True)
     dat_criacao = Column(Date, nullable=True)
     dat_alteracao = Column(Date, nullable=True, onupdate=func.current_date())
 
     # Definindo a relação com a tabela sistema_produto
-    produto = relationship("Produto", back_populates="estoque")
+    produtos = relationship("Produto", backref="estoques", lazy='subquery')
 
 
     def __repr__(self):

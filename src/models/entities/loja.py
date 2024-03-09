@@ -18,7 +18,7 @@ class Loja(Base):
     dat_criacao = Column(Date, nullable=True)
     dat_alteracao = Column(Date, nullable=True, onupdate=func.current_date())
 
-    vendedores = relationship("Vendedor", back_populates="lojas")
+    vendedores = relationship("Vendedor", backref="lojas", lazy='subquery')
 
 
     def __repr__(self):
